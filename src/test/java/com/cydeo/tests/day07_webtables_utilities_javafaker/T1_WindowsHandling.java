@@ -57,12 +57,12 @@ WebDriver driver;
         }
 
         //5. Assert: Title contains “Etsy”
-        String actualTitle= driver.getTitle();
-        String expectedTitle="Etsy";
+       // String actualTitle= driver.getTitle();
+        //String expectedTitle="Etsy";
 
-        Assert.assertTrue(actualTitle.contains(expectedTitle));
+      //  Assert.assertTrue(actualTitle.contains(expectedTitle));
 
-
+BrowserUtils.verifyTitleContains(driver,"Etsy");
 
 
 
