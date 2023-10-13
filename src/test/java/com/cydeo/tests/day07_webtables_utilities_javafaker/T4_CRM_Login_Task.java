@@ -1,6 +1,7 @@
 package com.cydeo.tests.day07_webtables_utilities_javafaker;
 
 import com.cydeo.utilities.BrowserUtils;
+import com.cydeo.utilities.CRM_Utilities;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -47,9 +48,35 @@ public class T4_CRM_Login_Task {
 
     BrowserUtils.sleep(3);
     BrowserUtils.verifyTitle(driver,"Portal");
-
-
 }
+    @Test
+    public void test2_crm_login(){
+        // loging in using utilities method we creadted in CRM utilities class
+        CRM_Utilities.login_crm(driver);
+
+//6. Verify title is as expected:
+        //Expected: Portal
+
+        BrowserUtils.sleep(3);
+        BrowserUtils.verifyTitle(driver,"Portal");
+
+
+    }
+
+    @Test
+    public void test3_crm_login(){
+        // loging in using utilities method we creadted in CRM utilities class
+        //CRM_Utilities.login_crm(driver,"helpdesk1@cydeo.com","UserUser");
+        CRM_Utilities.login_crm(driver,"helpdesk2@cydeo.com","UserUser");
+
+//6. Verify title is as expected:
+        //Expected: Portal
+
+        BrowserUtils.sleep(3);
+        BrowserUtils.verifyTitle(driver,"Portal");
+
+
+    }
 
 
 
