@@ -1,5 +1,6 @@
 package com.cydeo.tests.day07_webtables_utilities_javafaker;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,10 @@ WebDriver driver;
             //2. Go to website: https://amazon.com
             driver.get("https://amazon.com");
         }
-
+    @AfterMethod
+    public void tearDownMethod(){
+        driver.quit();
+    }
 
     @Test
     public void window_handling_test(){
@@ -65,4 +69,21 @@ WebDriver driver;
 
 
     }
+
+    @Test
+    public void window_handling_test2(){
+        //3. Copy paste the lines from below into your class
+        //These lines will simply open new tabs using something called JavascriptExecutor
+        //and get those pages. We will learn JavascriptExecutor later as well.
+        ((JavascriptExecutor) driver).executeScript("window.open('http://google.com','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('http://etsy.com','_blank');");
+        ((JavascriptExecutor) driver).executeScript("window.open('http://facebook.com','_blank');");
+
+        BrowserUtils.switchWindowAndVerify(driver,"etsy","Etsy");
+
+
+    }
+
+
+
 }
